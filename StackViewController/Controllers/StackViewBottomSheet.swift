@@ -49,6 +49,10 @@ final public class StackViewBottomSheet: UIViewController {
     
     // MARK: - Lifecycle
     
+    public override func loadView() {
+        view = StackViewPassThroughView()
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupGestures()
@@ -180,7 +184,7 @@ final public class StackViewBottomSheet: UIViewController {
         case .ended:
             let velocity = gestureRecognizer.velocity(in: headerView)
             let point = CGPoint(x: velocity.x / -1000, y: velocity.y / -1000)
-            finishMoving(velocity: velocity)
+            finishMoving(velocity: point)
         default: break
         }
     }
@@ -217,6 +221,7 @@ private enum Subviews {
     
     static var backView: UIView {
         let view = UIView()
+        view.backgroundColor = .white
         return view
     }
     
