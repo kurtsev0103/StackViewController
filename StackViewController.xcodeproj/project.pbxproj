@@ -10,6 +10,12 @@
 		D5A1440F29005D8100C69B24 /* StackViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A1440629005D8000C69B24 /* StackViewController.framework */; };
 		D5A1441429005D8100C69B24 /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1441329005D8100C69B24 /* StackViewControllerTests.swift */; };
 		D5A1441529005D8100C69B24 /* StackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A1440929005D8000C69B24 /* StackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5A14422290060B200C69B24 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A14421290060B200C69B24 /* UIView+Layout.swift */; };
+		D5A14424290061FD00C69B24 /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A14423290061FD00C69B24 /* UIViewController+Children.swift */; };
+		D5A144262900623E00C69B24 /* StackViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A144252900623E00C69B24 /* StackViewHelper.swift */; };
+		D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */; };
+		D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */; };
+		D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1443429006C7A00C69B24 /* StackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +33,12 @@
 		D5A1440929005D8000C69B24 /* StackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		D5A1440E29005D8100C69B24 /* StackViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A1441329005D8100C69B24 /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
+		D5A14421290060B200C69B24 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		D5A14423290061FD00C69B24 /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
+		D5A144252900623E00C69B24 /* StackViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewHelper.swift; sourceTree = "<group>"; };
+		D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBottomSheet.swift; sourceTree = "<group>"; };
+		D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewPassThroughView.swift; sourceTree = "<group>"; };
+		D5A1443429006C7A00C69B24 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				D5A1440929005D8000C69B24 /* StackViewController.h */,
+				D5A1443329006C6500C69B24 /* Controllers */,
+				D5A1443629006CE600C69B24 /* Views */,
+				D5A144202900609B00C69B24 /* Extensions */,
+				D5A144252900623E00C69B24 /* StackViewHelper.swift */,
 			);
 			path = StackViewController;
 			sourceTree = "<group>";
@@ -80,6 +96,32 @@
 				D5A1441329005D8100C69B24 /* StackViewControllerTests.swift */,
 			);
 			path = StackViewControllerTests;
+			sourceTree = "<group>";
+		};
+		D5A144202900609B00C69B24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5A14421290060B200C69B24 /* UIView+Layout.swift */,
+				D5A14423290061FD00C69B24 /* UIViewController+Children.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D5A1443329006C6500C69B24 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1443429006C7A00C69B24 /* StackViewController.swift */,
+				D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D5A1443629006CE600C69B24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +186,7 @@
 				TargetAttributes = {
 					D5A1440529005D8000C69B24 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 					D5A1440D29005D8100C69B24 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -191,6 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */,
+				D5A14422290060B200C69B24 /* UIView+Layout.swift in Sources */,
+				D5A144262900623E00C69B24 /* StackViewHelper.swift in Sources */,
+				D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */,
+				D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */,
+				D5A14424290061FD00C69B24 /* UIViewController+Children.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +387,7 @@
 		D5A1441929005D8100C69B24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -359,6 +409,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,6 +418,7 @@
 		D5A1441A29005D8100C69B24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -396,6 +448,7 @@
 		D5A1441C29005D8100C69B24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -411,6 +464,7 @@
 		D5A1441D29005D8100C69B24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
