@@ -48,6 +48,12 @@ final public class StackViewBottomSheet: UIViewController {
         }
     }
     
+    // MARK: - Public Methods
+    
+    public func move(to state: BottomSheetPosition) {
+        animateMoving(to: state)
+    }
+    
     // MARK: - Lifecycle
     
     public override func loadView() {
@@ -80,7 +86,6 @@ final public class StackViewBottomSheet: UIViewController {
         backView.pinToSuperview(edges: [.left, .right, .bottom])
         bottomSheetHeightConstraint.isActive = true
         backView.backgroundColor = configuration.backColor
-        
         backView.layer.cornerRadius = configuration.cornerRadius
         backView.layer.masksToBounds = configuration.cornerRadius != 0
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -166,6 +171,7 @@ final public class StackViewBottomSheet: UIViewController {
     }
     
     private func animateMoving(to position: BottomSheetPosition, duration: TimeInterval = 0.2, velocity: CGPoint = .zero) {
+        guard position != .progressing else { return }
         bottomSheetPosition = position
         bottomSheetHeightConstraint.constant = initialBottomSheetHeight
         

@@ -31,6 +31,12 @@ final public class StackViewController: UIViewController {
     public var state: BottomSheetPosition {
         sheetVC.bottomSheetPosition
     }
+    
+    // MARK: - Public Methods
+    
+    public func move(to state: BottomSheetPosition) {
+        sheetVC.move(to: state)
+    }
 
     // MARK: - Lifecycle
 
