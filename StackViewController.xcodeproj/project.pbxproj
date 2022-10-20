@@ -16,6 +16,8 @@
 		D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */; };
 		D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */; };
 		D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1443429006C7A00C69B24 /* StackViewController.swift */; };
+		D5A1444B29009C1200C69B24 /* TableViewSplitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1444A29009C1200C69B24 /* TableViewSplitDelegate.swift */; };
+		D5A1444D2901747300C69B24 /* StackUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1444C2901747300C69B24 /* StackUITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBottomSheet.swift; sourceTree = "<group>"; };
 		D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewPassThroughView.swift; sourceTree = "<group>"; };
 		D5A1443429006C7A00C69B24 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		D5A1444A29009C1200C69B24 /* TableViewSplitDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSplitDelegate.swift; sourceTree = "<group>"; };
+		D5A1444C2901747300C69B24 /* StackUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackUITableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				D5A1443429006C7A00C69B24 /* StackViewController.swift */,
 				D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */,
+				D5A1444A29009C1200C69B24 /* TableViewSplitDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 		D5A1443629006CE600C69B24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D5A1444C2901747300C69B24 /* StackUITableView.swift */,
 				D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */,
 			);
 			path = Views;
@@ -234,11 +240,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5A1444D2901747300C69B24 /* StackUITableView.swift in Sources */,
 				D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */,
 				D5A14422290060B200C69B24 /* UIView+Layout.swift in Sources */,
 				D5A144262900623E00C69B24 /* StackViewHelper.swift in Sources */,
 				D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */,
 				D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */,
+				D5A1444B29009C1200C69B24 /* TableViewSplitDelegate.swift in Sources */,
 				D5A14424290061FD00C69B24 /* UIViewController+Children.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

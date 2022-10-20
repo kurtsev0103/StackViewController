@@ -33,11 +33,4 @@ final public class StackViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Public Methods
-    
-    public func track(_ scrollView: UIScrollView?) {
-        guard let scrollView = scrollView else { return }
-        scrollView.delegate = sheetVC
-    }
 }

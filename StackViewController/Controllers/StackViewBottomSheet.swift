@@ -55,6 +55,7 @@ final public class StackViewBottomSheet: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        trackScrollView()
         setupGestures()
         setupLayout()
     }
@@ -186,6 +187,14 @@ final public class StackViewBottomSheet: UIViewController {
             let point = CGPoint(x: velocity.x / -1000, y: velocity.y / -1000)
             finishMoving(velocity: point)
         default: break
+        }
+    }
+    
+    func trackScrollView() {
+        if let childVC = childVC as? UITableViewController,
+           let tableView = childVC.tableView as? StackUITableView {
+            tableView.scrollViewDelegate = self
+            tableView.delegate = childVC
         }
     }
 }
