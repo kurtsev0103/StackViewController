@@ -13,11 +13,12 @@ final public class StackViewBottomSheet: UIViewController {
     
     private let childVC: UIViewController
     private lazy var backView: UIView = .init()
-    private lazy var headerView: UIView = .init()
     
     // MARK: - Public Properties
     
+    var headerView: UIView!
     var configuration: StackViewConfigurationType!
+    var bottomSheetPosition: BottomSheetPosition = .minimum
     
     // MARK: - Private Properties
     
@@ -29,12 +30,6 @@ final public class StackViewBottomSheet: UIViewController {
     }()
     
     // MARK: - Position Properties
-    
-    private var bottomSheetPosition: BottomSheetPosition = .minimum
-    
-    private enum BottomSheetPosition {
-        case minimum, maximum, progressing
-    }
     
     private var currentPosition: BottomSheetPosition {
         let height = bottomSheetHeightConstraint.constant
@@ -92,10 +87,6 @@ final public class StackViewBottomSheet: UIViewController {
     }
     
     private func setupHeaderView() {
-        if let headerView = configuration.headerView {
-            self.headerView = headerView
-        }
-        
         backView.addSubview(headerView)
         headerView.activate(constraints: [
             headerView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 0),

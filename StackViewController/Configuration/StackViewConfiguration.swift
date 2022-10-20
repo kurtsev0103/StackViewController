@@ -14,7 +14,6 @@ public protocol StackViewConfigurationType {
     var backColor: UIColor { get }
     var cornerRadius: CGFloat { get }
     
-    var headerView: UIView? { get }
     var headerHeight: CGFloat { get }
     
     var shadowColor: UIColor { get }
@@ -37,7 +36,6 @@ final class StackViewDefaultConfiguration: StackViewConfigurationType {
     var backColor: UIColor { .white }
     var cornerRadius: CGFloat { 16.0 }
     
-    var headerView: UIView? { StackViewHeaderView() }
     var headerHeight: CGFloat { 20.0 }
     
     var shadowColor: UIColor { .black }

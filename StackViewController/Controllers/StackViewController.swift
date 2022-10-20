@@ -7,6 +7,10 @@
 
 import UIKit
 
+public enum BottomSheetPosition {
+    case minimum, maximum, progressing
+}
+
 final public class StackViewController: UIViewController {
     
     // MARK: - Private Properties
@@ -15,16 +19,24 @@ final public class StackViewController: UIViewController {
     private let sheetVC: StackViewBottomSheet
     
     // MARK: - Public Properties
+    
+    public var headerView: UIView? {
+        didSet { sheetVC.headerView = headerView }
+    }
         
     public var configuration: StackViewConfigurationType? {
         didSet { sheetVC.configuration = configuration }
+    }
+    
+    public var state: BottomSheetPosition {
+        sheetVC.bottomSheetPosition
     }
 
     // MARK: - Lifecycle
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        updateConfiguration()
+        updateDefaultParameters()
         addChild(mainVC, in: view)
         addChild(sheetVC, in: view)
     }
@@ -43,8 +55,13 @@ final public class StackViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    func updateConfiguration() {
-        guard configuration == nil else { return }
-        configuration = StackViewDefaultConfiguration()
+    func updateDefaultParameters() {
+        if configuration == nil {
+            configuration = StackViewDefaultConfiguration()
+        }
+        
+        if headerView == nil {
+            headerView = StackViewHeaderView()
+        }
     }
 }
