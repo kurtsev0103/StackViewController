@@ -11,39 +11,45 @@ final public class StackViewBottomSheet: UIViewController {
     
     // MARK: - Views
     
-    private lazy var backView = Subviews.backView
-    private lazy var headerView = Subviews.headerView
-    
-    // MARK: - Properties
-    
     private let childVC: UIViewController
+    private lazy var backView: UIView = .init()
+    private lazy var headerView: UIView = .init()
     
-    private var scrollViewOffset: CGFloat = 0
+    // MARK: - Public Properties
     
-    private lazy var bottomSheetHeightConstraint = self.makeBottomSheetHeightConstraint()
+    var configuration: StackViewConfigurationType!
     
-    enum BottomSheetPosition {
-        case minimum, maximum, progressing
-    }
+    // MARK: - Private Properties
+    
+    private var scrollViewOffset: CGFloat = 0.0
+    private var minimumVelocity: CGFloat = 50.0
+    
+    private lazy var bottomSheetHeightConstraint = {
+        makeBottomSheetHeightConstraint()
+    }()
+    
+    // MARK: - Position Properties
     
     private var bottomSheetPosition: BottomSheetPosition = .minimum
     
-    private var initialBottomSheetHeight: CGFloat {
-        switch bottomSheetPosition {
-        case .maximum: return StackViewHelper.maximumHeight
-        case .minimum: return StackViewHelper.minimumHeight
-        case .progressing: return 0.0
-        }
+    private enum BottomSheetPosition {
+        case minimum, maximum, progressing
     }
     
     private var currentPosition: BottomSheetPosition {
         let height = bottomSheetHeightConstraint.constant
-        if height == StackViewHelper.maximumHeight {
-            return .maximum
-        } else if height == StackViewHelper.minimumHeight {
-            return .minimum
-        } else {
-            return .progressing
+        switch height {
+        case configuration.maxHeight: return .maximum
+        case configuration.minHeight: return .minimum
+        default: return .progressing
+        }
+    }
+    
+    private var initialBottomSheetHeight: CGFloat {
+        switch bottomSheetPosition {
+        case .maximum: return configuration.maxHeight
+        case .minimum: return configuration.minHeight
+        case .progressing: return 0.0
         }
     }
     
@@ -55,9 +61,10 @@ final public class StackViewBottomSheet: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackView()
+        setupHeaderView()
+        setupChildVC()
         trackScrollView()
-        setupGestures()
-        setupLayout()
     }
     
     // MARK: - Initialization
@@ -73,26 +80,37 @@ final public class StackViewBottomSheet: UIViewController {
     
     // MARK: - Setup
     
-    private func setupGestures() {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        headerView.addGestureRecognizer(pan)
-        headerView.addGestureRecognizer(tap)
-    }
-    
-    private func setupLayout() {
+    private func setupBackView() {
         view.addSubview(backView)
+        backView.backgroundColor = configuration.backColor
         backView.pinToSuperview(edges: [.left, .right, .bottom])
         bottomSheetHeightConstraint.isActive = true
+    }
+    
+    private func setupHeaderView() {
+        if let headerView = configuration.headerView {
+            self.headerView = headerView
+        }
         
         backView.addSubview(headerView)
         headerView.activate(constraints: [
             headerView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 0),
             headerView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 0),
             headerView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: 0),
-            headerView.heightAnchor.constraint(equalToConstant: StackViewHelper.headerHeight),
+            headerView.heightAnchor.constraint(equalToConstant: configuration.headerHeight),
         ])
         
+        addGestureToHeaderView()
+    }
+    
+    private func addGestureToHeaderView() {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        headerView.addGestureRecognizer(pan)
+        headerView.addGestureRecognizer(tap)
+    }
+    
+    private func setupChildVC() {
         addChild(childVC)
         backView.addSubview(childVC.view)
         childVC.view.activate(constraints: [
@@ -106,7 +124,7 @@ final public class StackViewBottomSheet: UIViewController {
     }
     
     private func makeBottomSheetHeightConstraint() -> NSLayoutConstraint {
-        backView.heightAnchor.constraint(equalToConstant: StackViewHelper.minimumHeight)
+        backView.heightAnchor.constraint(equalToConstant: configuration.minHeight)
     }
     
     // MARK: - Moving
@@ -131,18 +149,18 @@ final public class StackViewBottomSheet: UIViewController {
     private func updateBottomSheetContraint(translation: CGFloat) {
         let value = initialBottomSheetHeight - translation
         bottomSheetHeightConstraint.constant = max(
-            StackViewHelper.minimumHeight,
-            min(value, StackViewHelper.maximumHeight)
+            configuration.minHeight,
+            min(value, configuration.maxHeight)
         )
     }
     
     private func finishMoving(velocity: CGPoint) {
-        let distance = StackViewHelper.maximumHeight - StackViewHelper.minimumHeight
-        let progressDistance = bottomSheetHeightConstraint.constant - StackViewHelper.minimumHeight
+        let distance = configuration.maxHeight - configuration.minHeight
+        let progressDistance = bottomSheetHeightConstraint.constant - configuration.minHeight
         let progress = progressDistance / distance
         let delta = velocity.y * -100
         
-        if abs(delta) > StackViewHelper.minimumVelocityConsideration && progress != 0 && progress != 1 {
+        if abs(delta) > minimumVelocity && progress != 0 && progress != 1 {
             let rest = abs(distance - progressDistance)
             let duration = TimeInterval(rest / abs(delta))
             let position: BottomSheetPosition = delta > 0 ? .minimum : .maximum
@@ -221,21 +239,5 @@ extension StackViewBottomSheet: UIScrollViewDelegate {
             break
         }
         finishMoving(velocity: velocity)
-    }
-}
-
-// MARK: - Subviews
-
-private enum Subviews {
-    
-    static var backView: UIView {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }
-    
-    static var headerView: UIView {
-        let view = UIView()
-        return view
     }
 }

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D53B764C29019982004B9E9F /* StackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B764B29019982004B9E9F /* StackViewConfiguration.swift */; };
 		D5A1440F29005D8100C69B24 /* StackViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A1440629005D8000C69B24 /* StackViewController.framework */; };
 		D5A1441429005D8100C69B24 /* StackViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1441329005D8100C69B24 /* StackViewControllerTests.swift */; };
 		D5A1441529005D8100C69B24 /* StackViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A1440929005D8000C69B24 /* StackViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5A14422290060B200C69B24 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A14421290060B200C69B24 /* UIView+Layout.swift */; };
 		D5A14424290061FD00C69B24 /* UIViewController+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A14423290061FD00C69B24 /* UIViewController+Children.swift */; };
-		D5A144262900623E00C69B24 /* StackViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A144252900623E00C69B24 /* StackViewHelper.swift */; };
 		D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */; };
 		D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */; };
 		D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1443429006C7A00C69B24 /* StackViewController.swift */; };
@@ -31,13 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D53B764B29019982004B9E9F /* StackViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewConfiguration.swift; sourceTree = "<group>"; };
 		D5A1440629005D8000C69B24 /* StackViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A1440929005D8000C69B24 /* StackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackViewController.h; sourceTree = "<group>"; };
 		D5A1440E29005D8100C69B24 /* StackViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A1441329005D8100C69B24 /* StackViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControllerTests.swift; sourceTree = "<group>"; };
 		D5A14421290060B200C69B24 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		D5A14423290061FD00C69B24 /* UIViewController+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Children.swift"; sourceTree = "<group>"; };
-		D5A144252900623E00C69B24 /* StackViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewHelper.swift; sourceTree = "<group>"; };
 		D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBottomSheet.swift; sourceTree = "<group>"; };
 		D5A1442F290069CA00C69B24 /* StackViewPassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewPassThroughView.swift; sourceTree = "<group>"; };
 		D5A1443429006C7A00C69B24 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D53B764A29019950004B9E9F /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1444A29009C1200C69B24 /* TableViewSplitDelegate.swift */,
+				D53B764B29019982004B9E9F /* StackViewConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		D5A143FC29005D8000C69B24 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +97,8 @@
 				D5A1440929005D8000C69B24 /* StackViewController.h */,
 				D5A1443329006C6500C69B24 /* Controllers */,
 				D5A1443629006CE600C69B24 /* Views */,
+				D53B764A29019950004B9E9F /* Configuration */,
 				D5A144202900609B00C69B24 /* Extensions */,
-				D5A144252900623E00C69B24 /* StackViewHelper.swift */,
 			);
 			path = StackViewController;
 			sourceTree = "<group>";
@@ -116,7 +125,6 @@
 			children = (
 				D5A1443429006C7A00C69B24 /* StackViewController.swift */,
 				D5A1442C290067A800C69B24 /* StackViewBottomSheet.swift */,
-				D5A1444A29009C1200C69B24 /* TableViewSplitDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,10 +251,10 @@
 				D5A1444D2901747300C69B24 /* StackUITableView.swift in Sources */,
 				D5A1442D290067A800C69B24 /* StackViewBottomSheet.swift in Sources */,
 				D5A14422290060B200C69B24 /* UIView+Layout.swift in Sources */,
-				D5A144262900623E00C69B24 /* StackViewHelper.swift in Sources */,
 				D5A1443529006CD300C69B24 /* StackViewController.swift in Sources */,
 				D5A14430290069CA00C69B24 /* StackViewPassThroughView.swift in Sources */,
 				D5A1444B29009C1200C69B24 /* TableViewSplitDelegate.swift in Sources */,
+				D53B764C29019982004B9E9F /* StackViewConfiguration.swift in Sources */,
 				D5A14424290061FD00C69B24 /* UIViewController+Children.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

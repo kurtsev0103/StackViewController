@@ -9,15 +9,22 @@ import UIKit
 
 final public class StackViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
     private let mainVC: UIViewController
     private let sheetVC: StackViewBottomSheet
+    
+    // MARK: - Public Properties
+        
+    public var configuration: StackViewConfigurationType? {
+        didSet { sheetVC.configuration = configuration }
+    }
 
     // MARK: - Lifecycle
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        updateConfiguration()
         addChild(mainVC, in: view)
         addChild(sheetVC, in: view)
     }
@@ -32,5 +39,12 @@ final public class StackViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private Methods
+    
+    func updateConfiguration() {
+        guard configuration == nil else { return }
+        configuration = StackViewDefaultConfiguration()
     }
 }
