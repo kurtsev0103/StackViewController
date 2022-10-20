@@ -87,8 +87,11 @@ final public class StackViewBottomSheet: UIViewController {
         bottomSheetHeightConstraint.isActive = true
         backView.backgroundColor = configuration.backColor
         backView.layer.cornerRadius = configuration.cornerRadius
-        backView.layer.masksToBounds = configuration.cornerRadius != 0
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        backView.layer.shadowOffset = configuration.shadowOffset
+        backView.layer.shadowRadius = configuration.shadowRadius
+        backView.layer.shadowColor = configuration.shadowColor.cgColor
+        backView.layer.shadowOpacity = Float(configuration.shadowOpacity)
     }
     
     private func setupHeaderView() {

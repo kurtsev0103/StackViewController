@@ -19,7 +19,7 @@ public protocol StackViewConfigurationType {
     var shadowColor: UIColor { get }
     var shadowOffset: CGSize { get }
     var shadowRadius: CGFloat { get }
-    var shadowSpread: CGFloat { get }
+    var shadowOpacity: CGFloat { get }
 }
 
 
@@ -38,8 +38,8 @@ final class StackViewDefaultConfiguration: StackViewConfigurationType {
     
     var headerHeight: CGFloat { 20.0 }
     
-    var shadowColor: UIColor { .black }
+    var shadowColor: UIColor { .black.withAlphaComponent(0.5) }
     var shadowOffset: CGSize { .zero }
     var shadowRadius: CGFloat { 8.0 }
-    var shadowSpread: CGFloat { 4.0 }
+    var shadowOpacity: CGFloat { 4.0 }
 }
