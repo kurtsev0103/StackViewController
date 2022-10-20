@@ -32,12 +32,12 @@ final class StackViewDefaultConfiguration: StackViewConfigurationType {
     
     // MARK: - StackViewConfigurationType
     
-    var minHeight: CGFloat { screenHeight / 4 }
+    var minHeight: CGFloat { screenHeight / 5 }
     var maxHeight: CGFloat { screenHeight / 2 }
     var backColor: UIColor { .white }
     var cornerRadius: CGFloat { 16.0 }
     
-    var headerView: UIView? { nil }
+    var headerView: UIView? { StackViewHeaderView() }
     var headerHeight: CGFloat { 20.0 }
     
     var shadowColor: UIColor { .black }
