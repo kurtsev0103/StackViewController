@@ -49,9 +49,9 @@ final public class StackViewController: UIViewController {
     
     // MARK: - Initialization
 
-    public init(mainVC: UIViewController, sheetVC: StackViewBottomSheet) {
+    public init(mainVC: UIViewController, sheetVC: UIViewController) {
+        self.sheetVC = StackViewBottomSheet(childVC: sheetVC)
         self.mainVC = mainVC
-        self.sheetVC = sheetVC
         super.init(nibName: nil, bundle: nil)
     }
 

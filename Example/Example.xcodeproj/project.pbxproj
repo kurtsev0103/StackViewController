@@ -8,18 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		D5C1CAAD290293A700F5541F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C1CAAC290293A700F5541F /* AppDelegate.swift */; };
-		D5C1CAB1290293A700F5541F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C1CAB0290293A700F5541F /* ViewController.swift */; };
 		D5C1CAB6290293A800F5541F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5C1CAB5290293A800F5541F /* Assets.xcassets */; };
 		D5C1CAB9290293A800F5541F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C1CAB7290293A800F5541F /* LaunchScreen.storyboard */; };
+		D5C1CACC2902965000F5541F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C1CACB2902965000F5541F /* MapViewController.swift */; };
+		D5C1CACE290296B500F5541F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C1CACD290296B500F5541F /* TableViewController.swift */; };
+		D5C1CAD32902998600F5541F /* StackViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C1CAC82902962200F5541F /* StackViewController.framework */; platformFilter = ios; };
+		D5C1CAD42902998600F5541F /* StackViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5C1CAC82902962200F5541F /* StackViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5C1CAC72902962200F5541F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5C1CAC22902962200F5541F /* StackViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D5A1440629005D8000C69B24;
+			remoteInfo = StackViewController;
+		};
+		D5C1CAC92902962200F5541F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5C1CAC22902962200F5541F /* StackViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D5A1440E29005D8100C69B24;
+			remoteInfo = StackViewControllerTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D5C1CAD52902998600F5541F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D5C1CAD42902998600F5541F /* StackViewController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D5C1CAA9290293A700F5541F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C1CAAC290293A700F5541F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5C1CAB0290293A700F5541F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D5C1CAB5290293A800F5541F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5C1CAB8290293A800F5541F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5C1CABA290293A800F5541F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5C1CAC22902962200F5541F /* StackViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StackViewController.xcodeproj; path = ../../StackViewController.xcodeproj; sourceTree = "<group>"; };
+		D5C1CACB2902965000F5541F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D5C1CACD290296B500F5541F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C1CAD32902998600F5541F /* StackViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				D5C1CAAC290293A700F5541F /* AppDelegate.swift */,
-				D5C1CAB0290293A700F5541F /* ViewController.swift */,
+				D5C1CACB2902965000F5541F /* MapViewController.swift */,
+				D5C1CACD290296B500F5541F /* TableViewController.swift */,
 				D5C1CAC0290293E200F5541F /* Resources */,
 			);
 			path = Example;
@@ -73,8 +111,18 @@
 		D5C1CAC12902958600F5541F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5C1CAC22902962200F5541F /* StackViewController.xcodeproj */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5C1CAC32902962200F5541F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5C1CAC82902962200F5541F /* StackViewController.framework */,
+				D5C1CACA2902962200F5541F /* StackViewControllerTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +135,7 @@
 				D5C1CAA5290293A700F5541F /* Sources */,
 				D5C1CAA6290293A700F5541F /* Frameworks */,
 				D5C1CAA7290293A700F5541F /* Resources */,
+				D5C1CAD52902998600F5541F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +172,35 @@
 			mainGroup = D5C1CAA0290293A700F5541F;
 			productRefGroup = D5C1CAAA290293A700F5541F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D5C1CAC32902962200F5541F /* Products */;
+					ProjectRef = D5C1CAC22902962200F5541F /* StackViewController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D5C1CAA8290293A700F5541F /* Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D5C1CAC82902962200F5541F /* StackViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = StackViewController.framework;
+			remoteRef = D5C1CAC72902962200F5541F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D5C1CACA2902962200F5541F /* StackViewControllerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StackViewControllerTests.xctest;
+			remoteRef = D5C1CAC92902962200F5541F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D5C1CAA7290293A700F5541F /* Resources */ = {
@@ -147,8 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5C1CAB1290293A700F5541F /* ViewController.swift in Sources */,
+				D5C1CACC2902965000F5541F /* MapViewController.swift in Sources */,
 				D5C1CAAD290293A700F5541F /* AppDelegate.swift in Sources */,
+				D5C1CACE290296B500F5541F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

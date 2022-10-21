@@ -7,7 +7,7 @@
 
 import UIKit
 
-final public class StackViewBottomSheet: UIViewController {
+final class StackViewBottomSheet: UIViewController {
     
     // MARK: - Views
     
