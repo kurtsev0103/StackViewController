@@ -3,6 +3,7 @@
 StackViewController is a simple and easy-to-use UI component to implement a BottomSheet similar to the one provided by Apple. The main advantage of this implementation is that the app is able to transition from the panning gesture on the sheet to scrolling content gesture in a scrollView or tableView.
 
 ![demo](https://user-images.githubusercontent.com/27446881/197181656-a761b10a-5cca-46cb-bf4f-5127141698e9.gif)
+![demo2](https://user-images.githubusercontent.com/27446881/197212957-bf9e5584-bec1-4617-b403-8b9d04f29eb9.gif)
 
 ## Samples and Example Usage
 
