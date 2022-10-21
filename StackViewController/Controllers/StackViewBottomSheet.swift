@@ -24,6 +24,7 @@ final class StackViewBottomSheet: UIViewController {
     
     private var scrollViewOffset: CGFloat = 0.0
     private var minimumVelocity: CGFloat = 50.0
+    private var isBlockedMoving: Bool = false
     
     private lazy var bottomSheetHeightConstraint = {
         makeBottomSheetHeightConstraint()
@@ -138,9 +139,15 @@ final class StackViewBottomSheet: UIViewController {
     private func canMoveBottomSheet(_ scrollView: UIScrollView) -> Bool {
         guard scrollView.isTracking else { return false }
         let offset = scrollView.contentOffset.y
+        
+        if isBlockedMoving && offset >= 0 {
+            scrollViewOffset = offset
+            isBlockedMoving = false
+        }
+        
         switch currentPosition {
-        case .maximum: return offset < 0
-        case .minimum: return offset > 0
+        case .maximum: return offset < 0 && !isBlockedMoving
+        case .minimum: return offset > 0 && !isBlockedMoving
         case .progressing: return true
         }
     }
@@ -230,6 +237,9 @@ extension StackViewBottomSheet: UIScrollViewDelegate {
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         scrollViewOffset = scrollView.contentOffset.y
+        if currentPosition == .maximum && scrollViewOffset < 0 {
+            isBlockedMoving = true
+        }
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
