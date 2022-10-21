@@ -31,9 +31,6 @@ let stackVC = StackViewController(mainVC: mainVC, sheetVC: sheetVC)
 
 That's it! You can already use ```StackViewController``` in your project 🤩
 
-
-The StackViewController object is always available to you:
-
 ## Customization
 
 Create your own class signed under the ```StackViewConfigurationType``` protocol
@@ -78,7 +75,7 @@ public func move(to state: BottomSheetPosition)
 
 ## Requirements
 
-iOS 11.0+
-Swift 5.0+
+- iOS 11.0+
+- Swift 5.0+
 
 ## Created by Oleksandr Kurtsev (Copyright © 2022) [LICENSE](https://github.com/kurtsev0103/StackViewController/blob/main/LICENSE)
