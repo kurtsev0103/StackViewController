@@ -20,6 +20,8 @@ final public class StackViewController: UIViewController {
     
     // MARK: - Public Properties
     
+    public var onChangePosition: ((CGFloat) -> Void)?
+    
     public var headerView: UIView? {
         didSet { sheetVC.headerView = headerView }
     }
@@ -45,6 +47,7 @@ final public class StackViewController: UIViewController {
         updateDefaultParameters()
         addChild(mainVC, in: view)
         addChild(sheetVC, in: view)
+        setupBinding()
     }
     
     // MARK: - Initialization
@@ -61,13 +64,20 @@ final public class StackViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    func updateDefaultParameters() {
+    private func updateDefaultParameters() {
         if configuration == nil {
             configuration = StackViewDefaultConfiguration()
         }
         
         if headerView == nil {
             headerView = StackViewHeaderView()
+        }
+    }
+    
+    private func setupBinding() {
+        sheetVC.onChangePosition = { [weak self] value in
+            guard let self = self else { return }
+            self.onChangePosition?(value)
         }
     }
 }

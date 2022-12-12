@@ -16,6 +16,8 @@ final class StackViewBottomSheet: UIViewController {
     
     // MARK: - Public Properties
     
+    var onChangePosition: ((CGFloat) -> Void)?
+    
     var headerView: UIView!
     var configuration: StackViewConfigurationType!
     var bottomSheetPosition: BottomSheetPosition = .minimum
@@ -30,10 +32,17 @@ final class StackViewBottomSheet: UIViewController {
         makeBottomSheetHeightConstraint()
     }()
     
+    private var constraintConstant: CGFloat = .zero {
+        didSet {
+            bottomSheetHeightConstraint.constant = constraintConstant
+            onChangePosition?(constraintConstant)
+        }
+    }
+    
     // MARK: - Position Properties
     
     private var currentPosition: BottomSheetPosition {
-        let height = bottomSheetHeightConstraint.constant
+        let height = constraintConstant
         switch height {
         case configuration.maxHeight: return .maximum
         case configuration.minHeight: return .minimum
@@ -161,7 +170,7 @@ final class StackViewBottomSheet: UIViewController {
     
     private func updateBottomSheetContraint(translation: CGFloat) {
         let value = initialBottomSheetHeight - translation
-        bottomSheetHeightConstraint.constant = max(
+        constraintConstant = max(
             configuration.minHeight,
             min(value, configuration.maxHeight)
         )
@@ -169,7 +178,7 @@ final class StackViewBottomSheet: UIViewController {
     
     private func finishMoving(velocity: CGPoint) {
         let distance = configuration.maxHeight - configuration.minHeight
-        let progressDistance = bottomSheetHeightConstraint.constant - configuration.minHeight
+        let progressDistance = constraintConstant - configuration.minHeight
         let progress = progressDistance / distance
         let delta = velocity.y * -100
         
@@ -186,7 +195,7 @@ final class StackViewBottomSheet: UIViewController {
     private func animateMoving(to position: BottomSheetPosition, duration: TimeInterval = 0.2, velocity: CGPoint = .zero) {
         guard position != .progressing else { return }
         bottomSheetPosition = position
-        bottomSheetHeightConstraint.constant = initialBottomSheetHeight
+        constraintConstant = initialBottomSheetHeight
         
         UIView.animate(
             withDuration: min(duration, 0.4),
