@@ -8,7 +8,7 @@
 import UIKit
 
 public enum BottomSheetPosition {
-    case minimum, maximum, progressing
+    case minimum, maximum, progressing, hidden
 }
 
 final public class StackViewController: UIViewController {
@@ -55,12 +55,12 @@ final public class StackViewController: UIViewController {
         guard let sheet2VC = sheet2VC else { return }
         if currentSheet == sheetVC {
             currentSheet = sheet2VC
-            sheetVC.move(to: .minimum)
+            sheetVC.move(to: .hidden)
             sheet2VC.move(to: .maximum)
             view.bringSubviewToFront(sheet2VC.view)
         } else {
             currentSheet = sheetVC
-            sheet2VC.move(to: .minimum)
+            sheet2VC.move(to: .hidden)
             sheetVC.move(to: .maximum)
             view.bringSubviewToFront(sheetVC.view)
         }

@@ -55,7 +55,7 @@ final class StackViewBottomSheet: UIViewController {
         switch bottomSheetPosition {
         case .maximum: return configuration.maxHeight
         case .minimum: return configuration.minHeight
-        case .progressing: return 0.0
+        case .progressing, .hidden: return 0.0
         }
     }
     
@@ -159,6 +159,7 @@ final class StackViewBottomSheet: UIViewController {
         case .maximum: return offset < 0 && !isBlockedMoving
         case .minimum: return offset > 0 && !isBlockedMoving
         case .progressing: return true
+        case .hidden: return false
         }
     }
     
@@ -217,7 +218,7 @@ final class StackViewBottomSheet: UIViewController {
         switch currentPosition {
         case .minimum: animateMoving(to: .maximum)
         case .maximum: animateMoving(to: .minimum)
-        case .progressing: break
+        case .progressing, .hidden: break
         }
     }
     
@@ -262,7 +263,7 @@ extension StackViewBottomSheet: UIScrollViewDelegate {
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         scrollViewOffset = 0
         switch currentPosition {
-        case .minimum, .progressing:
+        case .minimum, .progressing, .hidden:
             targetContentOffset.pointee = .zero
         case .maximum:
             break
