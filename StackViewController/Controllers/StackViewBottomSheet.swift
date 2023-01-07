@@ -17,6 +17,7 @@ final class StackViewBottomSheet: UIViewController {
     // MARK: - Public Properties
     
     var onChangePosition: ((CGFloat) -> Void)?
+    var onMoveToMinimum: (() -> Void)?
     
     var headerView: UIView!
     var configuration: StackViewConfigurationType!
@@ -194,6 +195,8 @@ final class StackViewBottomSheet: UIViewController {
     
     private func animateMoving(to position: BottomSheetPosition, duration: TimeInterval = 0.2, velocity: CGPoint = .zero) {
         guard position != .progressing else { return }
+        if position == .minimum { onMoveToMinimum?() }
+        
         bottomSheetPosition = position
         constraintConstant = initialBottomSheetHeight
         
