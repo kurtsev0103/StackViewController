@@ -72,11 +72,12 @@ final public class StackViewController: UIViewController {
         super.viewDidLoad()
         updateDefaultParameters()
         addChild(mainVC, in: view)
-        addChild(sheetVC, in: view)
         
         if let sheet2VC = sheet2VC {
             addChild(sheet2VC, in: view)
         }
+        
+        addChild(sheetVC, in: view)
         
         setupBinding()
     }
