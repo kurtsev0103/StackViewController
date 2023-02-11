@@ -51,6 +51,21 @@ final public class StackViewController: UIViewController {
         sheetVC.move(to: state)
     }
     
+    public func showSheet1() {
+        currentSheet = sheetVC
+        sheet2VC?.move(to: .hidden)
+        sheetVC.move(to: .maximum)
+        view.bringSubviewToFront(sheetVC.view)
+    }
+    
+    public func showSheet2() {
+        guard let sheet2VC = sheet2VC else { return }
+        currentSheet = sheet2VC
+        sheetVC.move(to: .hidden)
+        sheet2VC.move(to: .maximum)
+        view.bringSubviewToFront(sheet2VC.view)
+    }
+    
     public func switchSheet() {
         guard let sheet2VC = sheet2VC else { return }
         if currentSheet == sheetVC {
